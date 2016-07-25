@@ -1,0 +1,138 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: "Lucida Console";
+    }
+    #chatScreen {
+      width: 100%;
+    }
+    .wrapper {
+      display: inline-block;
+      vertical-align: top;
+      /*height: 75%;*/
+      padding: 1em;
+      border: 1px #00ff00 solid;
+    }
+    .offline {
+      color: #aaa;
+    }
+    #messages {
+      border: 1px red solid;
+      height: 250px;
+      margin-bottom: 1em;
+      overflow: scroll;
+    }
+    h2 {
+      color: red;
+    }
+    input {
+      background-color: #00ff00;
+      font-family: "Lucida Console";
+      height: 30px;
+    }
+    textarea {
+      background-color: #00ff00;
+      font-family: "Lucida Console";
+    }
+    button {
+      background-color: #00ff00;
+      font-family: "Lucida Console";
+      height: 30px;
+    }
+    .message .userName {
+      text-decoration: underline;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 390px;
+      margin-bottom: 1em;
+    }
+    .video-container .video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #userWrapper {
+      width: 95%;
+    }
+    #messageWrapper {
+      width: 95%;
+    }
+    #inputSection {
+      margin-top: 2em;
+    }
+    #inputSection span {
+      width: 100px;
+      display: inline-block;
+    }
+    #explanation {
+      color: #aaa;
+    }
+    #inputSection div {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    #requestLabel {
+      vertical-align: top;
+    }
+    a {
+      color: #00ff00;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+<div id='chatScreen'>
+  <div id='messageWrapper' class='wrapper'>
+    <div class='video-container'>
+      <iframe src="https://www.youtube.com/embed/1GNWCfeXQ8A" frameborder="0" allowfullscreen class='video'></iframe>
+    </div>
+
+    <h2>Resources</h2>
+    <div><a href='http://transpoc.org'>transpoc.org</a></div>
+    <div><a href='http://www.transequality.org'>transequality.org</a></div>
+    <div><a href='http://www.avp.org'>avp.org</a></div>
+
+    <div id="inputSection">
+      <div id="explanation">If you are trans or GNC & have more questions about resources; or questions about receiving help/finding kindreds/access for yourself please insert your email and request below.  If you are cis and seeking to be more involved and educated please submit your email below.</div>
+      <div><span>Email: </span><input id='email' type='text' /></div>
+      <div><span id='requestLabel'>Request: </span><textarea id="message" rows="4" cols="50"></textarea></div>
+      <div><button id='sendButton'>Send</button></div>
+      <div id="messageSent" hidden>Message sent</div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+$('#sendButton').click(function() {
+  email = $('#email').val();
+  message = $('#message').val();
+  $.post('/send-email', JSON.stringify({
+    subject: 'message from kinky-chat',
+    text: 'message from ' + email + ': ' + message
+  }));
+  // $('#email').val('');
+  // $('#message').val('');
+  $('#sendButton').hide();
+  $('#messageSent').show();
+});
+</script>
+
+
+</body>
+</html>
