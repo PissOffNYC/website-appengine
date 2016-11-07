@@ -21,10 +21,6 @@
         padding: 0.5em;
         line-height: 1.5;
       }
-      #text-info {
-        margin: 1em;
-        padding: 1em;
-      }
       #upcoming-shows ul {
         margin-top: 0.1em;
         margin-bottom: 0;
@@ -34,12 +30,11 @@
         color: black;
         font-family: monospace;
         font-size: 18px;
-      }
-      #out-now {
         margin: 1em;
         padding: 1em;
       }
-      .yellow-text #out-now-title {
+      .yellow-text #out-now-title,
+      .yellow-text #merch-title {
         text-align: center;
         color: black;
         font-family: monospace;
@@ -72,6 +67,18 @@
         width: 100%;
         height: 100%;
       }
+      #cd-patches-image,
+      #out-now-image {
+        width: 100%;
+        max-width: 700px;
+        margin-bottom: 1em;
+      }
+      #cd-patches-image {
+        border: 4px solid #FF02E6;
+      }
+      #out-now-image {
+        border: 4px solid white;
+      }
 
       /* mobile or narrow screens */
       @media (max-width: 599px) {
@@ -86,13 +93,12 @@
         }
       }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   </head>
   <body>
     <h1>PISS-OFF!</h1>
     <div id="top-banner" class="yellow-text">
       <div>
-        <span><a href="https://www.facebook.com/events/1409318699085104/">See PISS-OFF! on tour in October</a></span>
+        <!-- <span><a href="https://www.facebook.com/events/1409318699085104/">See PISS-OFF! on tour in October</a></span> -->
         <span>Hear us on <a href="https://open.spotify.com/artist/78StN2Z2uBQa3vuzyVe5Mg">Spotify</a>, <a href="https://itunes.apple.com/us/album/perfect-is-for-amateurs/id1064215299">iTunes</a>, and <a href="http://soundcloud.com/pissofffool">SoundCloud</a></span>
       </div>
       <div>
@@ -112,9 +118,36 @@
       <iframe src="http://www.youtube.com/embed/_EwrmOdNW3c" frameborder="0" allowfullscreen class="video"></iframe>
     </div>
 
-    <div id="text-info" class="yellow-text">
+    <div class="yellow-text">
 
-      <div id="upcoming-shows">
+      <div id="merch" class="yellow-text" style="margin:0;padding:0;">
+        <div id="merch-title">CDs & Patches For Sale!</div>
+        <div style="text-align:center;">
+          <img id="cd-patches-image" src="images/Patches_CD.jpg">
+
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="HPSLPAD9QM69E">
+            <input type="hidden" name="on0" value="Add Ons">
+            <span style="color:black;margin:0;font-size:28px;vertical-align:middle;">Add Ons</span>
+            <select name="os0" style="font-size:18px;">
+              <option value="W/Patch (Black/Navy/Red/Green)">W/Patch (Black/Navy/Red/Green) $13.99 USD</option>
+              <option value="CD only">CD only $7.99 USD</option>
+            </select>
+            <input type="hidden" name="currency_code" value="USD">
+            <p>
+              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+              <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </p>
+          </form>
+
+        </div> <!-- end of centered div -->
+      </div>  <!-- end of #merch -->
+    </div>  <!-- end of yellow text block -->
+
+    <div class="yellow-text">
+
+<!--       <div id="upcoming-shows">
         <a href="https://www.facebook.com/events/1409318699085104/">Melt Your Face Tour 2016:</a>
         <ul>
           <li><a href="https://www.facebook.com/events/538263006384571/">10/20 at Millhill Basement in Trenton, NJ</a></li>
@@ -123,7 +156,7 @@
           <li><a href="https://www.facebook.com/events/1815814162035887/">10/23 at Jimmy's Saloon in Newport, RI</a></li>
           <li><a href="https://www.facebook.com/events/1721373151459342/">10/24 at Anna Liffey's in New Haven, CT</a></li>
         </ul>
-      </div>
+      </div> -->
 
       <p><strong>PISS-OFF!</strong> wants to wet your pants and blow your mind.  They combine powers to create noisy, jumping, dancing, screaming, bouncing, rap, punk, electronic, hardcore music.  PISS-OFF! is the anti-band.  They rock rap shows and turn avante-garde dance performances into dirty raves.</p>
       <p>PISS-OFF! is Brooklyn based rapper/singer/producer/artist Anika Trujillo and keyboardist/producer/vocalist/dj Gumball Eyeball.  Their debut album <b>Perfect is for Amateurs</b> is now available on <a href="https://open.spotify.com/album/5P3PFj9PeYF7t70YFvioZS"><b>Spotify</b></a> and <a href="https://itunes.apple.com/us/album/perfect-is-for-amateurs/id1064215299"><b>iTunes</b></a></p>
@@ -146,7 +179,7 @@
     <div id="out-now" class="yellow-text">
       <div id="out-now-title">Out Now!</div>
       <div style="text-align:center;">
-        <img src="images/perfect-is-for-remixes.jpg" style="height:100%;margin-bottom:1em;border:4px solid white">
+        <img id="out-now-image" src="images/perfect-is-for-remixes.jpg">
       </div>
     </div>
 
